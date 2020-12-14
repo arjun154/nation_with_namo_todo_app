@@ -5,8 +5,7 @@ export const addTask = (payload) => ({
   type: ADD_TODO,
   payload: {
     id: uuid(),
-    title: payload.title,
-    tag: payload.tag,
+    title: payload,
     status: false,
   },
 });
