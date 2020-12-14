@@ -50,6 +50,10 @@ export default function Todo() {
     box: {
       marginTop: 15,
     },
+    complete: {
+      marginTop: 15,
+      textDecoration: "line-through",
+    },
     button: {
       marginLeft: "80%",
       marginTop: "10px",
@@ -105,7 +109,7 @@ export default function Todo() {
                   onChange={handleToggle}
                   id={item.id}
                 />
-                <div className={classes.box}>{item.title}</div>
+                <div className={classes.complete}>{item.title}</div>
                 <Typography className={classes.box}>Completed</Typography>
               </Box>
             ))}
