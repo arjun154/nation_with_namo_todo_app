@@ -1,5 +1,5 @@
-import { ADD_TODO, TOGGLE_STATUS, FILTER_TODOS } from "./actionTypes";
-import { loadTodos, saveTodos } from "../Utils/TodoLocalStorage";
+import { ADD_TODO, TOGGLE_STATUS, CLEAR_TODOS } from "./actionTypes";
+import { loadTodos, saveTodos, clearTodos } from "../Utils/TodoLocalStorage";
 
 const initState = {
   todos: loadTodos("tasks") || [],
@@ -24,7 +24,12 @@ const reducer = (state = initState, { type, payload }) => {
         ...state,
         todos: tasks,
       };
-
+    case CLEAR_TODOS:
+      clearTodos("tasks");
+      return {
+        ...state,
+        todos: [],
+      };
     default:
       return state;
   }

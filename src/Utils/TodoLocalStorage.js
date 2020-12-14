@@ -10,3 +10,7 @@ export const loadTodos = (key) => {
 export const saveTodos = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
+
+export const clearTodos = (key) => {
+  localStorage.clear(key);
+};

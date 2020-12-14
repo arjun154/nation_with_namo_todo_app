@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_STATUS, FILTER_TODOS } from "./actionTypes";
+import { ADD_TODO, TOGGLE_STATUS, CLEAR_TODOS } from "./actionTypes";
 import { v4 as uuid } from "uuid";
 
 export const addTask = (payload) => ({
@@ -15,7 +15,6 @@ export const taskCompleted = (payload) => ({
   payload,
 });
 
-export const filterTodo = (payload) => ({
-  type: FILTER_TODOS,
-  payload,
+export const clearTodo = () => ({
+  type: CLEAR_TODOS,
 });

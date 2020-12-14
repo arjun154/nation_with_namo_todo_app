@@ -5,9 +5,10 @@ import {
   Container,
   Box,
   Typography,
+  Button,
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { addTask, taskCompleted } from "../Redux/actions";
+import { addTask, taskCompleted, clearTodo } from "../Redux/actions";
 import { makeStyles } from "@material-ui/core/styles";
 
 export default function Todo() {
@@ -16,7 +17,6 @@ export default function Todo() {
   const todo = useSelector((state) => state.todos);
 
   const handleSubmit = () => {
-    console.log(task);
     dispatch(addTask(task));
     setTask("");
   };
@@ -50,12 +50,24 @@ export default function Todo() {
     box: {
       marginTop: 15,
     },
+    button: {
+      marginLeft: "80%",
+      marginTop: "10px",
+    },
   });
 
   const classes = useStyles();
 
   return (
     <div>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => dispatch(clearTodo())}
+        className={classes.button}
+      >
+        Reset
+      </Button>
       <h1>Todo Applicaiton</h1>
       <TextField
         id="outlined-basic"
